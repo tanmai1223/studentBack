@@ -11,7 +11,7 @@ dotenv.config()
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173", // React app URL
+  origin: "https://studentdatabaseproject.netlify.app", // React app URL
   credentials: true,               // only if you're using cookies
 }));
 
