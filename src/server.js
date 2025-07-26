@@ -10,9 +10,22 @@ dotenv.config()
 
 const app = express();
 
+const cors = require('cors');
+
+const allowedOrigins = [
+  'https://studentdatabaseproject.netlify.app',
+  'https://studentback-ocnq.onrender.com', // <-- add this too
+];
+
 app.use(cors({
-  origin: "https://studentdatabaseproject.netlify.app", // React app URL
-  credentials: true,               // only if you're using cookies
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // if you're using cookies or sessions
 }));
 
 app.use(express.json());
