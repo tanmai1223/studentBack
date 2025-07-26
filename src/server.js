@@ -10,7 +10,7 @@ dotenv.config()
 
 const app = express();
 
-const cors = require('cors');
+
 
 const allowedOrigins = [
   'https://studentdatabaseproject.netlify.app',
